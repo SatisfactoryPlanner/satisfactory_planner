@@ -2,4 +2,8 @@ pub mod item;
 pub mod recipe;
 
 #[derive(Debug, Clone)]
-pub struct ItemWithRate(pub item::Item, pub f32);
+pub struct ItemAmount {
+    pub item: item::Item,
+    pub amount: u32,
+    pub manufacturing_duration: f32,
+}

@@ -1,11 +1,12 @@
 use crate::buildings::building::Machine;
 
-use super::ItemWithRate;
+use super::ItemAmount;
 
 #[derive(Debug, Clone)]
 pub struct Recipe {
+    pub name: String,
     pub machine: Machine,
-    pub input: Vec<ItemWithRate>,
-    pub output_rate: f32,
-    pub byproduct: Option<ItemWithRate>,
+    pub input: Vec<ItemAmount>,
+    pub output: ItemAmount,
+    pub byproduct: Option<ItemAmount>,
 }

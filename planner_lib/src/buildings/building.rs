@@ -2,7 +2,7 @@ use crate::items::recipe::Recipe;
 
 #[derive(Debug, Clone)]
 pub enum Machine {
-    Assmebler,
+    Assembler,
     Blender,
     Constructor,
     Foundry,
