@@ -1,8 +1,8 @@
 [package]
 name = "planner_registry"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["funlennysub", "localcc <work@localcc.cc>"]
-licnese = "MIT"
+license = "MIT"
 edition = "2021"
 
 [dependencies]
