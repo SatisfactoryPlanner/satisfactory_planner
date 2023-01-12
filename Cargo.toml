@@ -1,2 +1,6 @@
 [workspace]
-members = ["planner_lib"]
+members = ["planner_registry", "planner_lib"]
+
+[workspace.dependencies]
+planner_registry = { path = "./planner_registry" }
+planner_lib = { path = "./planner_lib" }

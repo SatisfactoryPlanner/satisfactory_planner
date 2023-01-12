@@ -1,0 +1,8 @@
+[package]
+name = "planner_registry"
+version = "0.1.0"
+authors = ["funlennysub", "localcc <work@localcc.cc>"]
+licnese = "MIT"
+edition = "2021"
+
+[dependencies]
