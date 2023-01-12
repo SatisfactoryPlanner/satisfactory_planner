@@ -1504,7 +1504,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: heavy_oil_residue.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
             ],
             output: ItemAmount {
@@ -1650,7 +1650,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: heavy_oil_residue.clone(),
-                    amount: 1000,
+                    amount: 1,
                 },
                 ItemAmount {
                     item: packaged_water.clone(),
@@ -1675,7 +1675,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: alumina_solution.clone(),
-                    amount: 12000,
+                    amount: 12,
                 },
                 ItemAmount {
                     item: petroleum_coke.clone(),
@@ -1688,7 +1688,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: water.clone(),
-                amount: 7000,
+                amount: 7,
             }),
             manufacturing_duration: 4f32,
             alternate: true,
@@ -1814,11 +1814,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             machine: Machine::Refinery,
             input: vec![ItemAmount {
                 item: crude_oil.clone(),
-                amount: 3000,
+                amount: 3,
             }],
             output: ItemAmount {
                 item: heavy_oil_residue.clone(),
-                amount: 4000,
+                amount: 4,
             },
             byproduct: Some(ItemAmount {
                 item: polymer_resin.clone(),
@@ -1899,7 +1899,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 1000,
+                    amount: 1,
                 },
             ],
             output: ItemAmount {
@@ -1919,7 +1919,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             machine: Machine::Refinery,
             input: vec![ItemAmount {
                 item: crude_oil.clone(),
-                amount: 6000,
+                amount: 6,
             }],
             output: ItemAmount {
                 item: polymer_resin.clone(),
@@ -1927,7 +1927,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: heavy_oil_residue.clone(),
-                amount: 2000,
+                amount: 2,
             }),
             manufacturing_duration: 6f32,
             alternate: true,
@@ -1946,7 +1946,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
             ],
             output: ItemAmount {
@@ -1971,7 +1971,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 4000,
+                    amount: 4,
                 },
             ],
             output: ItemAmount {
@@ -1996,7 +1996,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 4000,
+                    amount: 4,
                 },
             ],
             output: ItemAmount {
@@ -2021,7 +2021,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 5000,
+                    amount: 5,
                 },
             ],
             output: ItemAmount {
@@ -2046,7 +2046,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: fuel.clone(),
-                    amount: 6000,
+                    amount: 6,
                 },
             ],
             output: ItemAmount {
@@ -2096,7 +2096,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 3000,
+                    amount: 3,
                 },
             ],
             output: ItemAmount {
@@ -2180,7 +2180,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: heavy_oil_residue.clone(),
-                    amount: 5000,
+                    amount: 5,
                 },
                 ItemAmount {
                     item: compacted_coal.clone(),
@@ -2189,7 +2189,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             ],
             output: ItemAmount {
                 item: turbofuel.clone(),
-                amount: 4000,
+                amount: 4,
             },
             byproduct: None,
             manufacturing_duration: 8f32,
@@ -2209,7 +2209,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 5000,
+                    amount: 5,
                 },
             ],
             output: ItemAmount {
@@ -2348,7 +2348,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: nitrogen_gas.clone(),
-                    amount: 24000,
+                    amount: 24,
                 },
             ],
             output: ItemAmount {
@@ -2369,16 +2369,16 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: heavy_oil_residue.clone(),
-                    amount: 5000,
+                    amount: 5,
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 10000,
+                    amount: 10,
                 },
             ],
             output: ItemAmount {
                 item: fuel.clone(),
-                amount: 10000,
+                amount: 10,
             },
             byproduct: None,
             manufacturing_duration: 6f32,
@@ -2427,11 +2427,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: nitric_acid.clone(),
-                    amount: 3000,
+                    amount: 3,
                 },
                 ItemAmount {
                     item: sulfuric_acid.clone(),
-                    amount: 5000,
+                    amount: 5,
                 },
             ],
             output: ItemAmount {
@@ -2440,7 +2440,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: water.clone(),
-                amount: 8000,
+                amount: 8,
             }),
             manufacturing_duration: 12f32,
             alternate: true,
@@ -2463,11 +2463,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: nitric_acid.clone(),
-                    amount: 8000,
+                    amount: 8,
                 },
                 ItemAmount {
                     item: fuel.clone(),
-                    amount: 10000,
+                    amount: 10,
                 },
             ],
             output: ItemAmount {
@@ -2496,11 +2496,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: sulfuric_acid.clone(),
-                    amount: 5000,
+                    amount: 5,
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 6000,
+                    amount: 6,
                 },
             ],
             output: ItemAmount {
@@ -2509,7 +2509,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: water.clone(),
-                amount: 5000,
+                amount: 5,
             }),
             manufacturing_duration: 6f32,
             alternate: true,
@@ -2611,12 +2611,12 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 10000,
+                    amount: 10,
                 },
             ],
             output: ItemAmount {
                 item: alumina_solution.clone(),
-                amount: 12000,
+                amount: 12,
             },
             byproduct: None,
             manufacturing_duration: 3f32,
@@ -2665,11 +2665,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: fuel.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: heavy_oil_residue.clone(),
-                    amount: 4000,
+                    amount: 4,
                 },
                 ItemAmount {
                     item: sulfur.clone(),
@@ -2682,7 +2682,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             ],
             output: ItemAmount {
                 item: turbofuel.clone(),
-                amount: 6000,
+                amount: 6,
             },
             byproduct: None,
             manufacturing_duration: 8f32,
@@ -3359,7 +3359,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: fuel.clone(),
-                    amount: 6000,
+                    amount: 6,
                 },
             ],
             output: ItemAmount {
@@ -3597,7 +3597,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: fuel.clone(),
-                    amount: 6000,
+                    amount: 6,
                 },
                 ItemAmount {
                     item: compacted_coal.clone(),
@@ -3606,7 +3606,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             ],
             output: ItemAmount {
                 item: turbofuel.clone(),
-                amount: 5000,
+                amount: 5,
             },
             byproduct: None,
             manufacturing_duration: 16f32,
@@ -4034,7 +4034,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: sulfuric_acid.clone(),
-                    amount: 8000,
+                    amount: 8,
                 },
             ],
             output: ItemAmount {
@@ -4043,7 +4043,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: sulfuric_acid.clone(),
-                amount: 2000,
+                amount: 2,
             }),
             manufacturing_duration: 12f32,
             alternate: false,
@@ -4066,11 +4066,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 5000,
+                    amount: 5,
                 },
                 ItemAmount {
                     item: nitrogen_gas.clone(),
-                    amount: 25000,
+                    amount: 25,
                 },
             ],
             output: ItemAmount {
@@ -4099,7 +4099,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: nitrogen_gas.clone(),
-                    amount: 25000,
+                    amount: 25,
                 },
             ],
             output: ItemAmount {
@@ -4120,11 +4120,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: nitrogen_gas.clone(),
-                    amount: 12000,
+                    amount: 12,
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 3000,
+                    amount: 3,
                 },
                 ItemAmount {
                     item: iron_plate.clone(),
@@ -4133,7 +4133,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             ],
             output: ItemAmount {
                 item: nitric_acid.clone(),
-                amount: 3000,
+                amount: 3,
             },
             byproduct: None,
             manufacturing_duration: 6f32,
@@ -4157,11 +4157,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: nitric_acid.clone(),
-                    amount: 6000,
+                    amount: 6,
                 },
                 ItemAmount {
                     item: sulfuric_acid.clone(),
-                    amount: 6000,
+                    amount: 6,
                 },
             ],
             output: ItemAmount {
@@ -4170,7 +4170,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: water.clone(),
-                amount: 6000,
+                amount: 6,
             }),
             manufacturing_duration: 24f32,
             alternate: false,
@@ -4979,7 +4979,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: heavy_oil_residue.clone(),
-                    amount: 1000,
+                    amount: 1,
                 },
             ],
             output: ItemAmount {
@@ -5063,11 +5063,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: sulfuric_acid.clone(),
-                    amount: 2500,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: alumina_solution.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: aluminum_casing.clone(),
@@ -5080,7 +5080,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: water.clone(),
-                amount: 1500,
+                amount: 1,
             }),
             manufacturing_duration: 3f32,
             alternate: false,
@@ -5351,12 +5351,12 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 18000,
+                    amount: 18,
                 },
             ],
             output: ItemAmount {
                 item: alumina_solution.clone(),
-                amount: 12000,
+                amount: 12,
             },
             byproduct: Some(ItemAmount {
                 item: silica.clone(),
@@ -5375,7 +5375,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: alumina_solution.clone(),
-                    amount: 4000,
+                    amount: 4,
                 },
                 ItemAmount {
                     item: coal.clone(),
@@ -5388,7 +5388,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: water.clone(),
-                amount: 2000,
+                amount: 2,
             }),
             manufacturing_duration: 0f32,
             alternate: false,
@@ -5403,7 +5403,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: fuel.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: empty_canister.clone(),
@@ -5432,12 +5432,12 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 3000,
+                    amount: 3,
                 },
             ],
             output: ItemAmount {
                 item: liquid_biofuel.clone(),
-                amount: 4000,
+                amount: 4,
             },
             byproduct: None,
             manufacturing_duration: 4f32,
@@ -5452,11 +5452,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             machine: Machine::Refinery,
             input: vec![ItemAmount {
                 item: crude_oil.clone(),
-                amount: 6000,
+                amount: 6,
             }],
             output: ItemAmount {
                 item: fuel.clone(),
-                amount: 4000,
+                amount: 4,
             },
             byproduct: Some(ItemAmount {
                 item: polymer_resin.clone(),
@@ -5475,7 +5475,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: liquid_biofuel.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: empty_canister.clone(),
@@ -5500,7 +5500,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: crude_oil.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: empty_canister.clone(),
@@ -5525,7 +5525,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: heavy_oil_residue.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: empty_canister.clone(),
@@ -5550,7 +5550,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: turbofuel.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: empty_canister.clone(),
@@ -5575,7 +5575,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: water.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: empty_canister.clone(),
@@ -5599,7 +5599,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             machine: Machine::Refinery,
             input: vec![ItemAmount {
                 item: heavy_oil_residue.clone(),
-                amount: 4000,
+                amount: 4,
             }],
             output: ItemAmount {
                 item: petroleum_coke.clone(),
@@ -5618,7 +5618,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             machine: Machine::Refinery,
             input: vec![ItemAmount {
                 item: crude_oil.clone(),
-                amount: 3000,
+                amount: 3,
             }],
             output: ItemAmount {
                 item: plastic.clone(),
@@ -5626,7 +5626,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: heavy_oil_residue.clone(),
-                amount: 1000,
+                amount: 1,
             }),
             manufacturing_duration: 6f32,
             alternate: false,
@@ -5640,11 +5640,11 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             machine: Machine::Refinery,
             input: vec![ItemAmount {
                 item: heavy_oil_residue.clone(),
-                amount: 6000,
+                amount: 6,
             }],
             output: ItemAmount {
                 item: fuel.clone(),
-                amount: 4000,
+                amount: 4,
             },
             byproduct: None,
             manufacturing_duration: 6f32,
@@ -5664,7 +5664,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
             ],
             output: ItemAmount {
@@ -5689,7 +5689,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 4000,
+                    amount: 4,
                 },
             ],
             output: ItemAmount {
@@ -5709,7 +5709,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             machine: Machine::Refinery,
             input: vec![ItemAmount {
                 item: crude_oil.clone(),
-                amount: 3000,
+                amount: 3,
             }],
             output: ItemAmount {
                 item: rubber.clone(),
@@ -5717,7 +5717,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             },
             byproduct: Some(ItemAmount {
                 item: heavy_oil_residue.clone(),
-                amount: 2000,
+                amount: 2,
             }),
             manufacturing_duration: 6f32,
             alternate: false,
@@ -5736,12 +5736,12 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
                 },
                 ItemAmount {
                     item: water.clone(),
-                    amount: 5000,
+                    amount: 5,
                 },
             ],
             output: ItemAmount {
                 item: sulfuric_acid.clone(),
-                amount: 5000,
+                amount: 5,
             },
             byproduct: None,
             manufacturing_duration: 6f32,
@@ -5760,7 +5760,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: liquid_biofuel.clone(),
-                amount: 2000,
+                amount: 2,
             },
             byproduct: Some(ItemAmount {
                 item: empty_canister.clone(),
@@ -5782,7 +5782,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: fuel.clone(),
-                amount: 2000,
+                amount: 2,
             },
             byproduct: Some(ItemAmount {
                 item: empty_canister.clone(),
@@ -5804,7 +5804,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: crude_oil.clone(),
-                amount: 2000,
+                amount: 2,
             },
             byproduct: Some(ItemAmount {
                 item: empty_canister.clone(),
@@ -5826,7 +5826,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: heavy_oil_residue.clone(),
-                amount: 2000,
+                amount: 2,
             },
             byproduct: Some(ItemAmount {
                 item: empty_canister.clone(),
@@ -5848,7 +5848,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: turbofuel.clone(),
-                amount: 2000,
+                amount: 2,
             },
             byproduct: Some(ItemAmount {
                 item: empty_canister.clone(),
@@ -5870,7 +5870,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: water.clone(),
-                amount: 2000,
+                amount: 2,
             },
             byproduct: Some(ItemAmount {
                 item: empty_canister.clone(),
@@ -5889,7 +5889,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: alumina_solution.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: empty_canister.clone(),
@@ -5914,7 +5914,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: nitric_acid.clone(),
-                    amount: 1000,
+                    amount: 1,
                 },
                 ItemAmount {
                     item: empty_fluid_tank.clone(),
@@ -5939,7 +5939,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: nitrogen_gas.clone(),
-                    amount: 4000,
+                    amount: 4,
                 },
                 ItemAmount {
                     item: empty_fluid_tank.clone(),
@@ -5964,7 +5964,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             input: vec![
                 ItemAmount {
                     item: sulfuric_acid.clone(),
-                    amount: 2000,
+                    amount: 2,
                 },
                 ItemAmount {
                     item: empty_canister.clone(),
@@ -5992,7 +5992,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: alumina_solution.clone(),
-                amount: 2000,
+                amount: 2,
             },
             byproduct: Some(ItemAmount {
                 item: empty_canister.clone(),
@@ -6014,7 +6014,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: nitric_acid.clone(),
-                amount: 1000,
+                amount: 1,
             },
             byproduct: Some(ItemAmount {
                 item: empty_fluid_tank.clone(),
@@ -6036,7 +6036,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: nitrogen_gas.clone(),
-                amount: 4000,
+                amount: 4,
             },
             byproduct: Some(ItemAmount {
                 item: empty_fluid_tank.clone(),
@@ -6058,7 +6058,7 @@ pub(crate) fn get_registry() -> (Vec<Rc<Item>>, HashMap<&'static str, Vec<Recipe
             }],
             output: ItemAmount {
                 item: sulfuric_acid.clone(),
-                amount: 1000,
+                amount: 1,
             },
             byproduct: Some(ItemAmount {
                 item: empty_canister.clone(),
