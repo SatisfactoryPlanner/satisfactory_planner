@@ -34,7 +34,7 @@ impl Registry {
     pub fn get_default_recipe(&self, query: &str) -> Option<&Recipe> {
         self.recipe_registry
             .get(query)
-            .map(|r| r.iter().find(|r| !r.alternate).unwrap())
+            .and_then(|r| r.iter().find(|r| !r.alternate))
     }
 
     pub fn search(&self, query: &str) -> Vec<(&str, &Vec<Recipe>)> {
