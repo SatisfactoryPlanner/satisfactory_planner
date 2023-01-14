@@ -113,7 +113,7 @@ pub fn generate_graph(
     recipe: &Recipe,
     expected_output_per_minute: f32,
     registry: &Registry,
-) -> Graph<Rc<Item>, f32> {
+) -> (Graph<Rc<Item>, f32>, NodeIndex) {
     let mut graph: Graph<Rc<Item>, f32> = Graph::new();
 
     // todo: recipe settings
@@ -193,5 +193,5 @@ pub fn generate_graph(
         }
     }
 
-    graph
+    (graph, root_node)
 }
