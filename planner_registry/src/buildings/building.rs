@@ -8,14 +8,10 @@ pub enum Machine {
     Constructor,
     Foundry,
     Manufacturer,
-    Miner,
-    OilExtractor,
     Packager,
     ParticleAccelerator,
     Refinery,
-    // ResourceWell
     Smelter,
-    WaterExtractor,
 }
 
 #[derive(Debug, Clone)]

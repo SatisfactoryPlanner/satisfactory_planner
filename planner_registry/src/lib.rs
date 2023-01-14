@@ -44,14 +44,6 @@ impl Registry {
             .get(query)
             .and_then(|r| r.iter().find(|r| !r.alternate))
     }
-
-    pub fn search(&self, query: &str) -> Vec<(&str, &Vec<Recipe>)> {
-        self.recipe_registry
-            .iter()
-            .filter(|(name, _)| name.to_lowercase().contains(query))
-            .map(|(name, recipe)| (*name, recipe))
-            .collect::<Vec<_>>()
-    }
 }
 
 impl Default for Registry {
