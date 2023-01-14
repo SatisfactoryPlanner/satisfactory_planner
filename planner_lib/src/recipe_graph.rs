@@ -2,7 +2,7 @@ use std::{collections::HashMap, rc::Rc};
 
 use petgraph::{
     stable_graph::NodeIndex,
-    visit::{Dfs, EdgeRef},
+    visit::{Bfs, Dfs, EdgeRef},
     Graph,
 };
 use planner_registry::{
@@ -169,6 +169,27 @@ pub fn generate_graph(
         // todo: recipe override
         if let Some(recipe) = registry.get_default_recipe(name) {
             add_recipe_tree_to_graph(&mut existing_nodes, &mut graph, node, sum, registry, recipe);
+        }
+    }
+
+    // flatten edge
+    let mut bfs = Bfs::new(&graph, root_node);
+    while let Some(node) = bfs.next(&graph) {
+        let neighbors = graph
+            .neighbors_directed(node, petgraph::Direction::Outgoing)
+            .collect::<Vec<_>>();
+
+        for neighbor in neighbors {
+            let edges = graph.edges_connecting(node, neighbor).collect::<Vec<_>>();
+
+            let edge_ids = edges.iter().map(|e| e.id()).collect::<Vec<_>>();
+            let sum = edges.iter().map(|e| *e.weight()).sum::<f32>();
+
+            for edge in edge_ids {
+                graph.remove_edge(edge);
+            }
+
+            graph.add_edge(node, neighbor, sum);
         }
     }
 
