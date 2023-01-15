@@ -27,6 +27,14 @@ impl Registry {
         }
     }
 
+    pub fn get_craftable_items(&self) -> Vec<Rc<Item>> {
+        self.item_registry
+            .iter()
+            .cloned()
+            .filter(|item| !item.raw)
+            .collect()
+    }
+
     pub fn get_recipes(&self, query: &str) -> Option<&Vec<Recipe>> {
         self.recipe_registry.get(query)
     }
@@ -35,14 +43,6 @@ impl Registry {
         self.recipe_registry
             .get(query)
             .and_then(|r| r.iter().find(|r| !r.alternate))
-    }
-
-    pub fn search(&self, query: &str) -> Vec<(&str, &Vec<Recipe>)> {
-        self.recipe_registry
-            .iter()
-            .filter(|(name, _)| name.to_lowercase().contains(query))
-            .map(|(name, recipe)| (*name, recipe))
-            .collect::<Vec<_>>()
     }
 }
 

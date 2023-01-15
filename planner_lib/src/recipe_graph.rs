@@ -71,12 +71,13 @@ fn add_recipe_to_graph(
 }
 
 fn add_recipe_tree_to_graph(
+    recipe: &Recipe,
+    expected_output_per_minute: f32,
+    registry: &Registry,
+    recipe_overrides: &HashMap<&'static str, &Recipe>,
     existing_nodes: &mut HashMap<&str, NodeIndex>,
     graph: &mut Graph<Rc<Item>, f32>,
     root_node: NodeIndex,
-    expected_output_per_minute: f32,
-    registry: &Registry,
-    recipe: &Recipe,
 ) {
     let mut current_round = add_recipe_to_graph(
         existing_nodes,
@@ -89,7 +90,11 @@ fn add_recipe_tree_to_graph(
 
     loop {
         for (name, expected_output_per_minute, node) in current_round {
-            if let Some(recipe) = registry.get_default_recipe(name) {
+            if let Some(recipe) = recipe_overrides
+                .get(name)
+                .copied()
+                .or_else(|| registry.get_default_recipe(name))
+            {
                 next_round.extend(add_recipe_to_graph(
                     existing_nodes,
                     node,
@@ -113,22 +118,22 @@ pub fn generate_graph(
     recipe: &Recipe,
     expected_output_per_minute: f32,
     registry: &Registry,
+    recipe_overrides: &HashMap<&'static str, &Recipe>,
 ) -> (Graph<Rc<Item>, f32>, NodeIndex) {
     let mut graph: Graph<Rc<Item>, f32> = Graph::new();
-
-    // todo: recipe settings
 
     let root_node = graph.add_node(recipe.output.item.clone());
 
     let mut existing_nodes = HashMap::new();
 
     add_recipe_tree_to_graph(
+        recipe,
+        expected_output_per_minute,
+        registry,
+        recipe_overrides,
         &mut existing_nodes,
         &mut graph,
         root_node,
-        expected_output_per_minute,
-        registry,
-        recipe,
     );
 
     // recalculating with account for byproducts
@@ -153,7 +158,7 @@ pub fn generate_graph(
         let sum = graph
             .edges_directed(node, petgraph::Direction::Incoming)
             .map(|e| *e.weight())
-            .sum::<f32>();
+            .sum();
 
         let name = graph.node_weight(node).unwrap().name;
 
@@ -166,9 +171,16 @@ pub fn generate_graph(
             graph.remove_edge(outgoing_edge);
         }
 
-        // todo: recipe override
         if let Some(recipe) = registry.get_default_recipe(name) {
-            add_recipe_tree_to_graph(&mut existing_nodes, &mut graph, node, sum, registry, recipe);
+            add_recipe_tree_to_graph(
+                recipe,
+                sum,
+                registry,
+                recipe_overrides,
+                &mut existing_nodes,
+                &mut graph,
+                node,
+            );
         }
     }
 
@@ -183,7 +195,7 @@ pub fn generate_graph(
             let edges = graph.edges_connecting(node, neighbor).collect::<Vec<_>>();
 
             let edge_ids = edges.iter().map(|e| e.id()).collect::<Vec<_>>();
-            let sum = edges.iter().map(|e| *e.weight()).sum::<f32>();
+            let sum = edges.iter().map(|e| *e.weight()).sum();
 
             for edge in edge_ids {
                 graph.remove_edge(edge);
