@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import QueryBar from "./components/QueryBar";
-import FactoryVisualization from "./components/FactoryVisualization";
+import FactoryVisualization from "./components/factoryVisualization/FactoryVisualization";
 import RawMaterials from "./components/summary/RawMaterials";
 import Byproducts from "./components/summary/Byproducts";
 import Power from "./components/summary/Power";
@@ -52,7 +52,9 @@ function App() {
             <BuildingSummary />
           </Grid>
         </Grid>
-        <FactoryVisualization />
+        <Grid container item xs>
+          <FactoryVisualization />
+        </Grid>
       </Grid>
     </React.Fragment>
   );

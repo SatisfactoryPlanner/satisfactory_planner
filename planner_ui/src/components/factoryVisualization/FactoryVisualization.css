@@ -1,0 +1,103 @@
+
+.sub-factory {
+    margin: 0.5rem;
+    display: grid;
+}
+
+.sub-factory-tooltip {
+    visibility: hidden;
+    text-align: right;
+    background-color: white;
+    padding: 5px;
+    top: 100%;
+    left: 100%;
+    min-width: 15rem;
+    transform: translateX(-100%);
+    z-index: 1;
+    position: absolute;
+    box-shadow: 0px 0px 5px black;
+}
+
+.sub-factory-highlight {
+    border: 2px solid rgba(var(--sub-factory-color), 1);
+
+    background-color: rgba(var(--sub-factory-color), 0.1);
+    position: relative;
+}
+
+.sub-factory-highlight:hover {
+    background-color: rgba(var(--sub-factory-color), 0.4);
+}
+
+.sub-factory-highlight:hover .sub-factory-tooltip {
+    visibility: visible;
+}
+
+.sub-factory-output {
+    text-align: right;
+    float: right;
+    width: 2rem;
+    height: 2rem;
+
+    display: block;
+}
+
+
+.sub-factory-content {
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.sub-factory-highlight, .sub-factory-content {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.sub-factory-tooltip-header {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.sub-factory-tooltip-input {
+    text-align: right;
+    align-items: end;
+    justify-content: right;
+    display: flex;
+}
+
+.machine {
+    box-sizing: border-box;
+    background-color: #75a4eb;
+    border-color: #1e40af;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: .25rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.line-grid {
+    background-color: rgb(147 197 253);
+    background-size: 2rem 2rem;
+    --grid-color: rgb(59 130 246);
+    background-image: repeating-linear-gradient(0deg, var(--grid-color), var(--grid-color) 1px, transparent 1px, transparent 2rem), repeating-linear-gradient(-90deg, var(--grid-color), var(--grid-color) 1px, transparent 1.8px, transparent 2rem);
+    width: inherit;
+    height: inherit;
+    opacity: 1;
+}
+
+.factory-container, .line-grid {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.factory {
+    width: 100%;
+    display: grid;
+}
