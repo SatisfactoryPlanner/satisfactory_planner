@@ -1,0 +1,29 @@
+[INFO]: Checking for the Wasm target...
+[INFO]: Compiling to Wasm...
+warning: profiles for the non root package will be ignored, specify profiles at the workspace root:
+package:   C:\Users\Kate\Desktop\satisfactoryplanner\satisfactory_planner\planner_ui\@rsw\planner_lib_wasm\Cargo.toml
+workspace: C:\Users\Kate\Desktop\satisfactoryplanner\satisfactory_planner\Cargo.toml
+   Compiling planner_registry v0.2.0 (C:\Users\Kate\Desktop\satisfactoryplanner\satisfactory_planner\planner_registry)
+warning: unused import: `wasm_bindgen::prelude::wasm_bindgen`
+ --> planner_registry\src\items\mod.rs:5:5
+  |
+5 | use wasm_bindgen::prelude::wasm_bindgen;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+error[E0277]: the trait bound `&'static str: FromWasmAbi` is not satisfied
+  --> planner_registry\src\items\recipe.rs:17:1
+   |
+17 | #[wasm_bindgen]
+   | ^^^^^^^^^^^^^^^ the trait `FromWasmAbi` is not implemented for `&'static str`
+   |
+   = help: the trait `FromWasmAbi` is implemented for `std::string::String`
+   = note: this error originates in the attribute macro `wasm_bindgen` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+For more information about this error, try `rustc --explain E0277`.
+warning: `planner_registry` (lib) generated 1 warning
+error: could not compile `planner_registry` due to previous error; 1 warning emitted
+Error: Compiling your crate to WebAssembly failed
+Caused by: failed to execute `cargo build`: exited with exit code: 101
+  full command: "cargo" "build" "--lib" "--target" "wasm32-unknown-unknown"

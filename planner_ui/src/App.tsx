@@ -20,6 +20,8 @@ import Power from "./components/summary/Power";
 import PartsList from "./components/summary/PartsList";
 import BuildingSummary from "./components/summary/BuildingSummary";
 
+import init, { greet } from "@rsw/planner_lib_wasm/planner_lib_wasm";
+
 function App() {
   return (
     <React.Fragment>
