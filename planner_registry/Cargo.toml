@@ -6,9 +6,9 @@ license = "MIT"
 edition = "2021"
 
 [dependencies]
-wasm-bindgen = { version = "0.2.63", optional = true }
-serde = { version = "1.0.152", features = ["derive"], optional = true }
-serde-wasm-bindgen = { version = "0.4.5", optional = true }
+wasm-bindgen = { version = "0.2.84", optional = true }
+serde = { version = "1.0.162", features = ["derive", "rc"], optional = true }
+serde-wasm-bindgen = { version = "0.5.0", optional = true }
 
 [features]
 bindgen = ["dep:wasm-bindgen", "dep:serde", "dep:serde-wasm-bindgen"]

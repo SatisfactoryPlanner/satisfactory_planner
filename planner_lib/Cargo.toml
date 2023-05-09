@@ -10,10 +10,12 @@ edition = "2021"
 [dependencies]
 petgraph = "0.6.2"
 planner_registry.workspace = true
+lazy_static = "1.4.0"
 
 wasm-bindgen = { version = "0.2.63", optional = true }
 serde = { version = "1.0.152", features = ["derive"], optional = true }
 serde-wasm-bindgen = { version = "0.4.5", optional = true }
+js-sys = { version = "0.3.61", optional = true }
 
 [features]
-bindgen = ["dep:wasm-bindgen", "planner_registry/bindgen", "dep:serde", "dep:serde-wasm-bindgen"]
+bindgen = ["dep:wasm-bindgen", "planner_registry/bindgen", "dep:serde", "dep:serde-wasm-bindgen", "dep:js-sys"]

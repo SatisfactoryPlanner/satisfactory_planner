@@ -3,7 +3,7 @@ use wasm_bindgen::prelude::wasm_bindgen;
 
 use crate::items::recipe::Recipe;
 
-#[wasm_bindgen]
+#[cfg_attr(feature = "bindgen", derive(serde::Serialize), wasm_bindgen)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum Machine {
     None,
@@ -25,7 +25,7 @@ pub struct Building {
     pub recipe: Recipe,
 }
 
-#[wasm_bindgen]
+#[cfg_attr(feature = "bindgen", wasm_bindgen)]
 impl Building {
     pub fn get_recipe(&self) -> Recipe {
         self.recipe.clone()

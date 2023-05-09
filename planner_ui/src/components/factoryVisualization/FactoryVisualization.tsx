@@ -6,10 +6,10 @@ import {
   Divider,
   Grid,
   Typography,
-} from "@mui/material";
+} from "@mui/joy";
 import getMachineData, { MachineData, MachineType } from "./MachineData";
 import "./FactoryVisualization.css";
-import Material from "../Material";
+import MaterialIcon from "../material/MaterialIcon";
 
 type MachineProps = {
   machine: MachineData;
@@ -17,15 +17,15 @@ type MachineProps = {
 
 function Machine(props: MachineProps) {
   return (
-    <div
+    <Box
       className="machine"
       style={{
         width: `${props.machine.visualWidth}rem`,
         height: `${props.machine.visualHeight}rem`,
       }}
     >
-      <Typography variant="subtitle2">{props.machine.machineSymbol}</Typography>
-    </div>
+      <Typography level="body1">{props.machine.machineSymbol}</Typography>
+    </Box>
   );
 }
 
@@ -38,20 +38,13 @@ type ItemProps = {
 
 function Item(props: ItemProps) {
   return (
-    <div className={props.className} style={props.style}>
+    <Box className={props.className} style={props.style}>
       <Typography>{props.name}</Typography>
       <Box sx={{ m: 0.2 }} />
-      <img
-        style={{
-          height: "1.5em",
-        }}
-        src={`/item_icons/${props.name}.png`}
-        loading="lazy"
-        alt={`${props.name} icon`}
-      />
+      <MaterialIcon style={{ height: "1.5em" }} materialName={props.name}/>
       <Box sx={{ m: 0.2 }} />
       <Typography>{props.value}</Typography>
-    </div>
+    </Box>
   );
 }
 
@@ -61,21 +54,21 @@ type HeaderProps = {
 
 function Header(props: HeaderProps) {
   return (
-    <div className="sub-factory-tooltip-header">
-      <Typography style={{ fontSize: "12px" }} variant="subtitle2">
+    <Box  className="sub-factory-tooltip-header">
+      <Typography style={{ fontSize: "12px" }} level="body1">
         {props.text}
       </Typography>
-    </div>
+    </Box>
   );
 }
 
 function SubFactory() {
   return (
-    <div
+    <Box
       className="sub-factory"
       style={{ "--sub-factory-color": "128, 128, 128" } as React.CSSProperties}
     >
-      <div className="sub-factory-content">
+      <Box className="sub-factory-content">
         <Machine machine={getMachineData(MachineType.Assembler)} />
         <Machine machine={getMachineData(MachineType.Assembler)} />
         <Machine machine={getMachineData(MachineType.Assembler)} />
@@ -91,56 +84,40 @@ function SubFactory() {
         <Machine machine={getMachineData(MachineType.Assembler)} />
         <Machine machine={getMachineData(MachineType.Assembler)} />
         <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-        <Machine machine={getMachineData(MachineType.Assembler)} />
-      </div>
-      <div className="sub-factory-highlight">
-        <img
-          src="/item_icons/Nuclear%20Pasta.png"
-          className="sub-factory-output"
-        />
-        <div className="sub-factory-tooltip">
+      </Box>
+      <Box className="sub-factory-highlight">
+        <MaterialIcon materialName={"Nuclear Pasta"} className="sub-factory-output"/>
+        <Box className="sub-factory-tooltip">
           <Item
             className="sub-factory-tooltip-header"
             name="Nuclear Pasta"
             value="123/min"
           />
-          <Divider style={{ marginTop: 10, marginBottom: 10 }} light />
+          <Divider />
           <Header text="Input" />
           <Item
             className="sub-factory-tooltip-input"
             name="Silica"
             value="30/min"
           />
-          <Divider style={{ marginTop: 10, marginBottom: 10 }} light />
+          <Divider />
           <Header text="Machine" />
           <Item
             className="sub-factory-tooltip-input"
             name="Assembler"
             value="x1"
           />
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
 function Factory() {
   return (
-    <div className="factory">
-      <div className="line-grid" />
-      <div className="factory-container">
+    <Box className="factory">
+      <Box className="line-grid" />
+      <Box className="factory-container">
         <Grid container>
           <SubFactory />
           <SubFactory />
@@ -153,25 +130,25 @@ function Factory() {
           <SubFactory />
           <SubFactory />
         </Grid>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
 export default function FactoryVisualization() {
   return (
-    <Grid container item style={{ margin: 5 }}>
+    <Grid container>
       <Card
         component={Grid}
-        item
-        elevation={8}
+        variant="outlined"
         xs={12}
         style={{ overflow: "visible" }}
       >
-        <Box sx={{ m: 1 }} />
-        <Typography style={{ textAlign: "center" }} variant="h6">
+        <Typography style={{ textAlign: "center" }} level="h6">
           Factory
         </Typography>
+
+        <Box sx={{ m: 0.5 }}/>
 
         <CardContent>
           <Factory />

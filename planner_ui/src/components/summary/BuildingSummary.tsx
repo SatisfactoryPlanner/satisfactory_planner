@@ -5,8 +5,9 @@ import {
   Divider,
   Grid,
   Typography,
-} from "@mui/material";
-import InfoLine from "../InfoLine";
+} from "@mui/joy";
+import InfoLine from "./InfoLine";
+import MaterialIcon from "../material/MaterialIcon";
 
 type SummaryEntryProps = {
   machine: string;
@@ -17,13 +18,13 @@ type SummaryEntryProps = {
 function SummaryEntry(props: SummaryEntryProps) {
   return (
     <Grid container alignItems="center">
-      <Grid item xs={3}>
-        <Typography variant="subtitle2">{props.machine}</Typography>
+      <Grid xs={3}>
+        <Typography level="body1">{props.machine}</Typography>
       </Grid>
-      <Grid item xs={2}>
-        <Typography variant="subtitle2">{props.power}</Typography>
+      <Grid xs={2}>
+        <Typography level="body1">{props.power}</Typography>
       </Grid>
-      <Grid item xs>
+      <Grid xs>
         {props.ingredients.map((e) => {
           return (
             <Typography
@@ -31,7 +32,7 @@ function SummaryEntry(props: SummaryEntryProps) {
                 textAlign: "right",
                 fontSize: "12px",
               }}
-              variant="subtitle2"
+              level="body1"
             >
               {e}
             </Typography>
@@ -44,24 +45,20 @@ function SummaryEntry(props: SummaryEntryProps) {
 
 export default function BuildingSummary() {
   return (
-    <Grid container item style={{ margin: 5 }}>
-      <Card component={Grid} item elevation={8} xs={12}>
-        <Box sx={{ m: 1 }} />
-        <Typography style={{ textAlign: "center" }} variant="h6">
+    <Grid container xs>
+      <Card variant="outlined" component={Grid} xs={12}>
+        <Typography sx={{ textAlign: "center" }} level="h6">
           Building Summary
         </Typography>
 
+        <Box sx={{ m: 0.5 }} />
+
         <CardContent>
           <InfoLine text="Power Shards" value="0">
-            <img
-              style={{ height: "2em" }}
-              src="/item_icons/Power%20Shard.png"
-              loading="lazy"
-              alt="Power Shard icon"
-            />
+            <MaterialIcon style={{ height: "2em" }} materialName="Power Shard"/>
           </InfoLine>
 
-          <Divider style={{ marginTop: 10, marginBottom: 10 }} light />
+          <Divider sx={{ my: 1 }} />
 
           <SummaryEntry
             machine="9x Refinery (mk1)"
@@ -73,7 +70,7 @@ export default function BuildingSummary() {
               "Copper Sheet 180",
             ]}
           />
-          <Divider style={{ marginTop: 10, marginBottom: 10 }} light />
+          <Divider sx={{ my: 1}} />
 
           <SummaryEntry
             machine="57x Constructor (mk1)"

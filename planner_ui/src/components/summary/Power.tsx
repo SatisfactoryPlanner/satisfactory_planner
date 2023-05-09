@@ -1,15 +1,15 @@
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
-import InfoLine from "../InfoLine";
+import { Box, Card, CardContent, Grid, Typography } from "@mui/joy";
+import InfoLine from "./InfoLine";
 
 export default function Power() {
   return (
-    <Grid container item style={{ margin: 5 }}>
-      <Card component={Grid} item elevation={8} xs={12}>
-        <Box sx={{ m: 1 }} />
-
-        <Typography style={{ textAlign: "center" }} variant="h6">
+    <Grid container xs>
+      <Card variant="outlined" component={Grid} xs={12}>
+        <Typography sx={{ textAlign: "center" }} level="h6">
           Power
         </Typography>
+
+        <Box sx={{ m: 0.5 }} />
 
         <CardContent>
           <InfoLine text="Total power used:" value="123 MW" />

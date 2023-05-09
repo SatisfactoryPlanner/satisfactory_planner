@@ -1,23 +1,21 @@
-use std::rc::Rc;
+use std::sync::Arc;
 
-use serde::{Deserialize, Serialize};
-#[cfg(feature = "bindgen")]
-use wasm_bindgen::prelude::wasm_bindgen;
-
-use self::item::{Item, ItemBind};
+use self::item::Item;
 
 pub mod item;
 pub mod recipe;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[cfg_attr(feature = "bindgen", derive(serde::Serialize))]
 pub struct ItemAmount {
-    pub item: Rc<Item>,
+    pub item: Arc<Item>,
     pub amount: u32,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[cfg_attr(feature = "bindgen", derive(serde::Serialize))]
 pub struct ItemAmountBind {
-    pub item: ItemBind,
+    pub item: Item,
     pub amount: u32,
 }
 

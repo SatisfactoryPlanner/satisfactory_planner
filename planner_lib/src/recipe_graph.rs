@@ -1,4 +1,4 @@
-use std::{collections::HashMap, rc::Rc};
+use std::{collections::HashMap, rc::Rc, sync::Arc};
 
 use petgraph::{
     stable_graph::NodeIndex,
@@ -12,8 +12,8 @@ use planner_registry::{
 
 fn get_or_create_node(
     nodes: &mut HashMap<&str, NodeIndex>,
-    graph: &mut Graph<Rc<Item>, f32>,
-    item: Rc<Item>,
+    graph: &mut Graph<Arc<Item>, f32>,
+    item: Arc<Item>,
 ) -> NodeIndex {
     match nodes.get(item.name) {
         Some(e) => *e,
@@ -30,7 +30,7 @@ fn add_recipe_to_graph(
     root_node: NodeIndex,
     expected_output_per_minute: f32,
     recipe: &Recipe,
-    graph: &mut Graph<Rc<Item>, f32>,
+    graph: &mut Graph<Arc<Item>, f32>,
 ) -> Vec<(&'static str, f32, NodeIndex)> {
     let mut next_round = Vec::new();
 
@@ -76,7 +76,7 @@ fn add_recipe_tree_to_graph(
     registry: &Registry,
     recipe_overrides: &HashMap<&'static str, &Recipe>,
     existing_nodes: &mut HashMap<&str, NodeIndex>,
-    graph: &mut Graph<Rc<Item>, f32>,
+    graph: &mut Graph<Arc<Item>, f32>,
     root_node: NodeIndex,
 ) {
     let mut current_round = add_recipe_to_graph(
@@ -119,8 +119,8 @@ pub fn generate_graph(
     expected_output_per_minute: f32,
     registry: &Registry,
     recipe_overrides: &HashMap<&'static str, &Recipe>,
-) -> (Graph<Rc<Item>, f32>, NodeIndex) {
-    let mut graph: Graph<Rc<Item>, f32> = Graph::new();
+) -> (Graph<Arc<Item>, f32>, NodeIndex) {
+    let mut graph: Graph<Arc<Item>, f32> = Graph::new();
 
     let root_node = graph.add_node(recipe.output.item.clone());
 

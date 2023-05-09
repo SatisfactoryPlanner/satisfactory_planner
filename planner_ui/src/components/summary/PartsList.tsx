@@ -5,8 +5,9 @@ import {
   Checkbox,
   Grid,
   Typography,
-} from "@mui/material";
-import InfoLine from "../InfoLine";
+} from "@mui/joy";
+import InfoLine from "./InfoLine";
+import MaterialIcon from "../material/MaterialIcon";
 
 type PartProps = {
   name: string;
@@ -15,17 +16,12 @@ type PartProps = {
 
 function Part(props: PartProps) {
   return (
-    <InfoLine text={props.name} value={props.amount.toString()}>
-      <Grid item>
-        <img
-          style={{ height: "1.3em" }}
-          src={`/item_icons/${props.name}.png`}
-          loading="lazy"
-          alt={`${props.name} icon`}
-        />
+    <InfoLine text={props.name} value={`x${props.amount.toString()}`}>
+      <Grid>
+        <MaterialIcon style={{ height: "2em" }} materialName={props.name}/>
       </Grid>
-      <Grid item>
-        <Checkbox sx={{ margin: 0, padding: 0 }} size="small" />
+      <Grid>
+        <Checkbox size="sm" />
       </Grid>
     </InfoLine>
   );
@@ -33,13 +29,13 @@ function Part(props: PartProps) {
 
 export default function PartsList() {
   return (
-    <Grid container item style={{ margin: 5 }}>
-      <Card component={Grid} item elevation={8} xs={12}>
-        <Box sx={{ m: 1 }} />
-
-        <Typography style={{ textAlign: "center" }} variant="h6">
+    <Grid container xs>
+      <Card variant="outlined" component={Grid} xs={12}>
+        <Typography style={{ textAlign: "center" }} level="h6">
           Parts List
         </Typography>
+
+        <Box sx={{ m: 0.5 }} />
 
         <CardContent>
           <Part name="Motor" amount={385} />
@@ -47,5 +43,5 @@ export default function PartsList() {
         </CardContent>
       </Card>
     </Grid>
-  );
+  )
 }

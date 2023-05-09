@@ -1,63 +1,64 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import {
-  AppBar,
   Box,
   Button,
-  Container,
+  Container, CssVarsProvider, extendTheme, Card, Divider,
   Grid,
-  Paper,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+  Typography, CssBaseline,
+} from "@mui/joy";
 import React from "react";
-import QueryBar from "./components/QueryBar";
+import Product from "./components/summary/Product";
 import FactoryVisualization from "./components/factoryVisualization/FactoryVisualization";
 import RawMaterials from "./components/summary/RawMaterials";
 import Byproducts from "./components/summary/Byproducts";
 import Power from "./components/summary/Power";
 import PartsList from "./components/summary/PartsList";
 import BuildingSummary from "./components/summary/BuildingSummary";
+import Navbar from "./components/Navbar";
 
-import init, { greet } from "@rsw/planner_lib_wasm/planner_lib_wasm";
+function Summary() {
+  return (
+      <Grid container rowSpacing={1.5}>
+        <Grid xs={12}>
+          <Product />
+        </Grid>
+        <Grid xs={12}>
+          <RawMaterials />
+        </Grid>
+        <Grid xs={12}>
+          <Byproducts />
+        </Grid>
+        <Grid xs={12}>
+          <Power />
+        </Grid>
+        <Grid xs={12}>
+          <PartsList />
+        </Grid>
+        <Grid xs={12}>
+          <BuildingSummary />
+        </Grid>
+      </Grid>
+  )
+}
 
 function App() {
   return (
     <React.Fragment>
-      <AppBar component="nav">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Satisfactory Planner
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Toolbar />
+      <CssVarsProvider>
+        <CssBaseline />
+        <Navbar/>
 
-      <Grid container>
-        <QueryBar />
-        <Grid container item xs={2.5}>
-          <Grid container item xs={12}>
-            <RawMaterials />
+        <Grid container rowSpacing={2} columnSpacing={1.5} sx={{ m: 0.5 }}>
+          <Grid xs={2}>
+            <Summary />
           </Grid>
-          {/* todo: intermediate products */}
-          <Grid container item xs={12}>
-            <Byproducts />
-          </Grid>
-          <Grid container item xs={12}>
-            <Power />
-          </Grid>
-          <Grid container item xs={12}>
-            <PartsList />
-          </Grid>
-          <Grid container item xs={12}>
-            <BuildingSummary />
+          <Grid xs>
+            <FactoryVisualization/>
           </Grid>
         </Grid>
-        <Grid container item xs>
-          <FactoryVisualization />
-        </Grid>
-      </Grid>
+      </CssVarsProvider>
     </React.Fragment>
   );
 }

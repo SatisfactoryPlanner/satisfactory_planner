@@ -1,19 +1,19 @@
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
-import Material from "../Material";
+import { Box, Card, CardContent, Grid, Typography } from "@mui/joy";
+import MaterialDisplay from "../material/MaterialDisplay";
 
 export default function Byproducts() {
   return (
-    <Grid container item style={{ margin: 5 }}>
-      <Card component={Grid} item elevation={8} xs={12}>
-        <Box sx={{ m: 1 }} />
-
-        <Typography style={{ textAlign: "center" }} variant="h6">
+    <Grid container xs>
+      <Card variant="outlined" component={Grid} xs={12}>
+        <Typography sx={{ textAlign: "center" }} level="h6">
           Byproducts
         </Typography>
 
+        <Box sx={{ m: 0.5 }} />
+
         <CardContent>
-          <Material name="Silica" per_minute={123} />
-          <Material name="Water" per_minute={456} />
+          <MaterialDisplay name="Silica" perMinute={123} />
+          <MaterialDisplay name="Water" perMinute={456} />
         </CardContent>
       </Card>
     </Grid>

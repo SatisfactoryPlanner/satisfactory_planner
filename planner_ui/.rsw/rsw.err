@@ -3,27 +3,34 @@
 warning: profiles for the non root package will be ignored, specify profiles at the workspace root:
 package:   C:\Users\Kate\Desktop\satisfactoryplanner\satisfactory_planner\planner_ui\@rsw\planner_lib_wasm\Cargo.toml
 workspace: C:\Users\Kate\Desktop\satisfactoryplanner\satisfactory_planner\Cargo.toml
-   Compiling planner_registry v0.2.0 (C:\Users\Kate\Desktop\satisfactoryplanner\satisfactory_planner\planner_registry)
-warning: unused import: `wasm_bindgen::prelude::wasm_bindgen`
- --> planner_registry\src\items\mod.rs:5:5
+   Compiling planner_lib v0.1.0 (C:\Users\Kate\Desktop\satisfactoryplanner\satisfactory_planner\planner_lib)
+warning: unused import: `rc::Rc`
+ --> planner_lib\src\recipe_graph.rs:1:33
   |
-5 | use wasm_bindgen::prelude::wasm_bindgen;
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1 | use std::{collections::HashMap, rc::Rc, sync::Arc};
+  |                                 ^^^^^^
   |
   = note: `#[warn(unused_imports)]` on by default
 
-error[E0277]: the trait bound `&'static str: FromWasmAbi` is not satisfied
-  --> planner_registry\src\items\recipe.rs:17:1
+error[E0308]: mismatched types
+  --> planner_lib\src\lib.rs:38:86
    |
-17 | #[wasm_bindgen]
-   | ^^^^^^^^^^^^^^^ the trait `FromWasmAbi` is not implemented for `&'static str`
+38 |         .map(|e| serde_wasm_bindgen::to_value(&DEFAULT_REGISTRY.get_recipes_for_item(e)).unwrap())
+   |                                                                 -------------------- ^ expected struct `Arc`, found `&&Recipe`
+   |                                                                 |
+   |                                                                 arguments to this method are incorrect
    |
-   = help: the trait `FromWasmAbi` is implemented for `std::string::String`
-   = note: this error originates in the attribute macro `wasm_bindgen` (in Nightly builds, run with -Z macro-backtrace for more info)
+   = note: expected struct `Arc<Item>`
+           found reference `&&Recipe`
+note: associated function defined here
+  --> C:\Users\Kate\Desktop\satisfactoryplanner\satisfactory_planner\planner_registry\src\lib.rs:38:12
+   |
+38 |     pub fn get_recipes_for_item(&self, item: Arc<Item>) -> Vec<&Recipe> {
+   |            ^^^^^^^^^^^^^^^^^^^^
 
-For more information about this error, try `rustc --explain E0277`.
-warning: `planner_registry` (lib) generated 1 warning
-error: could not compile `planner_registry` due to previous error; 1 warning emitted
+For more information about this error, try `rustc --explain E0308`.
+warning: `planner_lib` (lib) generated 1 warning
+error: could not compile `planner_lib` due to previous error; 1 warning emitted
 Error: Compiling your crate to WebAssembly failed
 Caused by: failed to execute `cargo build`: exited with exit code: 101
   full command: "cargo" "build" "--lib" "--target" "wasm32-unknown-unknown"

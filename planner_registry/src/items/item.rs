@@ -1,22 +1,17 @@
-use serde::{Deserialize, Serialize};
+#[cfg(feature = "bindgen")]
+use wasm_bindgen::prelude::wasm_bindgen;
 
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+#[cfg_attr(feature = "bindgen", derive(serde::Serialize), wasm_bindgen)]
 pub struct Item {
+    #[wasm_bindgen(skip)]
     pub name: &'static str,
     pub raw: bool,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub struct ItemBind {
-    pub name: String,
-    pub raw: bool,
-}
-
-impl Into<ItemBind> for Item {
-    fn into(self) -> ItemBind {
-        ItemBind {
-            name: self.name.to_string(),
-            raw: self.raw,
-        }
+#[wasm_bindgen]
+impl Item {
+    pub fn get_name(&self) -> String {
+        self.name.to_string()
     }
 }

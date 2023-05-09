@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/joy";
 
 type InfoLineProps = {
   text: string;
@@ -8,15 +8,15 @@ type InfoLineProps = {
 
 export default function InfoLine(props: InfoLineProps) {
   return (
-    <Grid container columnSpacing={1} alignItems="center">
+    <Grid container columnSpacing={2} alignItems="center">
       {props.children}
 
-      <Grid item>
+      <Grid>
         <Typography>{props.text}</Typography>
       </Grid>
 
-      <Grid item container direction="row-reverse" xs>
-        <Grid item>
+      <Grid container direction="row-reverse" xs>
+        <Grid>
           <Typography>{props.value}</Typography>
         </Grid>
       </Grid>

@@ -2,6 +2,7 @@ use std::rc::Rc;
 
 #[cfg(feature = "bindgen")]
 use wasm_bindgen::prelude::wasm_bindgen;
+#[cfg(feature = "bindgen")]
 use wasm_bindgen::JsValue;
 
 use crate::buildings::building::Machine;
@@ -14,9 +15,11 @@ pub struct ItemRate {
     pub rate: f32,
 }
 
-#[wasm_bindgen]
 #[derive(Debug, Clone, PartialEq)]
+#[cfg_attr(feature = "bindgen", derive(serde::Serialize), wasm_bindgen)]
+#[cfg_attr(feature = "bindgen", serde(rename_all = "camelCase"))]
 pub struct Recipe {
+    #[wasm_bindgen(skip)]
     pub name: &'static str,
     pub machine: Machine,
     #[wasm_bindgen(skip)]
@@ -32,6 +35,11 @@ pub struct Recipe {
 #[cfg(feature = "bindgen")]
 #[wasm_bindgen]
 impl Recipe {
+    #[wasm_bindgen]
+    pub fn get_name(&self) -> String {
+        self.name.to_string()
+    }
+
     pub fn get_input(&self) -> JsValue {
         serde_wasm_bindgen::to_value(
             &self

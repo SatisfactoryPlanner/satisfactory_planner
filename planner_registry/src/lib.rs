@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use std::rc::Rc;
+use std::sync::Arc;
 
 pub mod buildings;
 pub mod items;
@@ -10,7 +10,7 @@ use crate::items::item::Item;
 use crate::items::recipe::Recipe;
 
 pub struct Registry {
-    pub item_registry: Vec<Rc<Item>>,
+    pub item_registry: Vec<Arc<Item>>,
     pub recipe_registry: HashMap<&'static str, Vec<Recipe>>,
 }
 
@@ -27,7 +27,7 @@ impl Registry {
         }
     }
 
-    pub fn get_craftable_items(&self) -> Vec<Rc<Item>> {
+    pub fn get_craftable_items(&self) -> Vec<Arc<Item>> {
         self.item_registry
             .iter()
             .cloned()
@@ -35,13 +35,21 @@ impl Registry {
             .collect()
     }
 
-    pub fn get_recipes(&self, query: &str) -> Option<&Vec<Recipe>> {
-        self.recipe_registry.get(query)
+    pub fn get_recipes_for_item(&self, item: Arc<Item>) -> Vec<&Recipe> {
+        self.recipe_registry
+            .get(item.name)
+            .map(|e| e.iter().collect::<Vec<_>>())
+            .unwrap_or_default()
     }
 
-    pub fn get_default_recipe(&self, query: &str) -> Option<&Recipe> {
+    pub fn get_recipe(&self, recipe_name: &str) -> Option<&Recipe> {
+        self.recipe_registry.iter().flat_map(|(_, recipes)| recipes)
+            .find(|e| e.name == recipe_name)
+    }
+
+    pub fn get_default_recipe(&self, recipe_name: &str) -> Option<&Recipe> {
         self.recipe_registry
-            .get(query)
+            .get(recipe_name)
             .and_then(|r| r.iter().find(|r| !r.alternate))
     }
 }
