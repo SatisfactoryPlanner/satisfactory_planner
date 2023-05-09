@@ -10,6 +10,7 @@ import {
 import getMachineData, { MachineData, MachineType } from "./MachineData";
 import "./FactoryVisualization.css";
 import MaterialIcon from "../material/MaterialIcon";
+import React from "react";
 
 type MachineProps = {
   machine: MachineData;
@@ -62,11 +63,18 @@ function Header(props: HeaderProps) {
   );
 }
 
-function SubFactory() {
+interface Position {
+  x: number;
+  y: number;
+}
+
+function SubFactory(props: { pos: Position }) {
+  const { pos } = props;
+
   return (
     <Box
       className="sub-factory"
-      style={{ "--sub-factory-color": "128, 128, 128" } as React.CSSProperties}
+      style={{ "--sub-factory-color": "128, 128, 128", top: pos.y, left: pos.x } as React.CSSProperties}
     >
       <Box className="sub-factory-content">
         <Machine machine={getMachineData(MachineType.Assembler)} />
@@ -116,20 +124,12 @@ function SubFactory() {
 function Factory() {
   return (
     <Box className="factory">
-      <Box className="line-grid" />
       <Box className="factory-container">
-        <Grid container>
-          <SubFactory />
-          <SubFactory />
-          <SubFactory />
-          <SubFactory />
-          <SubFactory />
-          <SubFactory />
-          <SubFactory />
-          <SubFactory />
-          <SubFactory />
-          <SubFactory />
-        </Grid>
+        <SubFactory pos={{ x: 0, y: 0 }} />
+        <SubFactory pos={{ x: 100, y: 100 }} />
+        <SubFactory pos={{ x: 200, y: 200 }} />
+        <SubFactory pos={{ x: 300, y: 300 }} />
+        <SubFactory pos={{ x: 400, y: 400 }} />
       </Box>
     </Box>
   );

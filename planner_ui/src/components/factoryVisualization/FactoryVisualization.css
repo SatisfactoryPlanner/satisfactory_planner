@@ -47,8 +47,11 @@
     padding: 0.5rem;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     display: flex;
+}
+
+.sub-factory-content .machine {
+    flex-shrink: 0;
 }
 
 .sub-factory-highlight, .sub-factory-content {
@@ -82,14 +85,21 @@
     display: flex;
 }
 
-.line-grid {
-    background-color: rgb(147 197 253);
-    background-size: 2rem 2rem;
+.factory-container {
+    overflow: auto;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    padding: 100px;
     --grid-color: rgb(59 130 246);
-    background-image: repeating-linear-gradient(0deg, var(--grid-color), var(--grid-color) 1px, transparent 1px, transparent 2rem), repeating-linear-gradient(-90deg, var(--grid-color), var(--grid-color) 1px, transparent 1.8px, transparent 2rem);
-    width: inherit;
-    height: inherit;
-    opacity: 1;
+    background: repeating-linear-gradient(0deg, var(--grid-color), var(--grid-color) 1px, transparent 1px, transparent 2rem) local, repeating-linear-gradient(-90deg, var(--grid-color), var(--grid-color) 1px, transparent 1.8px, transparent 2rem) local;
+}
+
+.factory-container > * {
+    position: absolute;
+    flex-shrink: 0;
+    overflow: visible;
+    white-space: nowrap;
 }
 
 .factory-container, .line-grid {
